@@ -1,11 +1,11 @@
 from discord.ext import commands
 import os
 import traceback
-from flask import Flask, render_template, request, redirect, url_for, send_from_directory, session
+
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
-app = Flask(__name__)
+
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -18,13 +18,7 @@ async def on_command_error(ctx, error):
 async def ping(ctx):
     await ctx.send('pong')
 
-@app.route('/post', method=['POST'])
-def post_json():
-    
-    return request.form["comment"]
-@app.route('/')
-def index():
-    return "Hello Flask!"
+
 
 bot.run(token)
 
