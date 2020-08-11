@@ -27,5 +27,4 @@ def index():
     return "Hello Flask!"
 def get_json():
 bot.run(token)
-if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=8888, threaded=True)
+
