@@ -25,6 +25,6 @@ def post_json():
 @app.route('/')
 def index():
     return "Hello Flask!"
-def get_json():
+
 bot.run(token)
 
