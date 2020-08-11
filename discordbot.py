@@ -5,7 +5,7 @@ from flask import Flask, render_template, request, redirect, url_for, send_from_
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
-
+app = Flask(__name__)
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -18,5 +18,10 @@ async def on_command_error(ctx, error):
 async def ping(ctx):
     await ctx.send('pong')
 
-
+@app.route('/post', method=['POST'])
+def post_json():
+    
+    return request.form["comment"]
 bot.run(token)
+if __name__ == "__main__":
+    app.run(debug=True, host='0.0.0.0', port=8888, threaded=True)
